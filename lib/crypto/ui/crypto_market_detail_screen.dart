@@ -18,8 +18,30 @@ class _CryptoMaretDetailScreenState extends State<CryptoMaretDetailScreen> {
       appBar: AppBar(
         title: const Text(
           'Bitcoin',
-          style: TextStyle(fontSize: 24, color: Colors.white),
+          style: TextStyle(
+            fontSize: 24,
+            color: Colors.white,
+          ),
         ),
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: const Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+        ),
+        actions:  const [
+          Padding(
+            padding: EdgeInsets.only(right: 16),
+            child: Icon(
+              Icons.star,
+              size: 28,
+              color: Colors.white,
+            ),
+          )
+        ],
         backgroundColor: Colors.black12,
       ),
       body: SingleChildScrollView(
@@ -188,7 +210,7 @@ class _CryptoMaretDetailScreenState extends State<CryptoMaretDetailScreen> {
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                   Text(
-                    widget.cryptoCoinInfo.marketCapChange24h.toString(),
+                    widget.cryptoCoinInfo.maxSupply.toString(),
                     style: const TextStyle(color: Colors.white),
                   ),
                 ],
