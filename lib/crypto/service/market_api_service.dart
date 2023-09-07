@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:crypto_exchange/crypto/model/crypto_coin_info.dart';
@@ -17,7 +18,13 @@ class MarketApiService {
         CryptoCoinInfo cryptoCoinInfo = CryptoCoinInfo.fromJson(mapList[i]);
         cryptoList.add(cryptoCoinInfo);
         Fluttertoast.showToast(
-          msg: 'Saved Successfully',
+            msg: 'Online',
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.TOP,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.green,
+            textColor: Colors.white,
+            fontSize: 16.0,
         );
       }
       return cryptoList;
