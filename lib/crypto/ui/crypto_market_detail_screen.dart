@@ -16,15 +16,12 @@ class _CryptoMaretDetailScreenState extends State<CryptoMaretDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Bitcoin',
-          style: TextStyle(
-            fontSize: 24,
-            color: Colors.white,
-          ),
+        title: Text(
+          widget.cryptoCoinInfo.name.toString(),
+          style: const TextStyle(color: Colors.white),
         ),
         leading: GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.pop(context);
           },
           child: const Icon(
@@ -32,15 +29,19 @@ class _CryptoMaretDetailScreenState extends State<CryptoMaretDetailScreen> {
             color: Colors.white,
           ),
         ),
-        actions:  const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: Icon(
-              Icons.star,
-              size: 28,
-              color: Colors.white,
+            padding: const EdgeInsets.only(right: 16),
+            child: TextButton(
+              onPressed: () {},
+              child: const Text(
+                'Bye',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             ),
-          )
+          ),
         ],
         backgroundColor: Colors.black12,
       ),
@@ -138,11 +139,11 @@ class _CryptoMaretDetailScreenState extends State<CryptoMaretDetailScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    'MarketCapChange24h',
+                    'LastUpdate',
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                   Text(
-                    widget.cryptoCoinInfo.priceChange24h.toString(),
+                    widget.cryptoCoinInfo.lastUpdated.toString(),
                     style: const TextStyle(color: Colors.white),
                   ),
                 ],
@@ -210,7 +211,7 @@ class _CryptoMaretDetailScreenState extends State<CryptoMaretDetailScreen> {
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                   Text(
-                    widget.cryptoCoinInfo.maxSupply.toString(),
+                    widget.cryptoCoinInfo.high24h.toString(),
                     style: const TextStyle(color: Colors.white),
                   ),
                 ],
@@ -227,7 +228,7 @@ class _CryptoMaretDetailScreenState extends State<CryptoMaretDetailScreen> {
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                   Text(
-                    widget.cryptoCoinInfo.maxSupply.toString(),
+                    widget.cryptoCoinInfo.atlChangePercentage.toString(),
                     style: const TextStyle(color: Colors.white),
                   ),
                 ],
